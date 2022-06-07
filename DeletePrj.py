@@ -76,6 +76,6 @@ cxUser = sys.argv[2] #${{secrets.CXUSER}}
 cxPwd = sys.argv[3] # ${{secrets.CXPWD}}
 git_project_name = sys.argv[4] #${{ github.event.repository.name }}
 git_pr_number = sys.argv[5] # ${{github.event.pull_request.number}}
-project_branh_name = git_project_name + ".PR." + git_pr_number
+project_branh_name = git_project_name + "-PR-" + git_pr_number
 
 Main()
