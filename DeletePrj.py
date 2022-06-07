@@ -42,7 +42,7 @@ def ObterIdProjeto(fproject):
 
 def DeletarProjeto(fid):
     urlDelete = cxServer + "/cxrestapi/help/projects/" + str(fid)
-    headersPrjDelete = {'Content-Type': 'application/json','Authorization': CheckmarxLogin()}
+    headersPrjDelete = {'Content-Type': 'application/json;v=1.0','Authorization': CheckmarxLogin()}
     payloadDelete = json.dumps({"deleteRunningScans": "true"})
     responsePrjdelete = requests.request("DELETE", urlDelete, headers=headersPrjDelete,data=payloadDelete)
 
