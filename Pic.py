@@ -78,4 +78,11 @@ git_project_name = sys.argv[4] #${{ github.event.repository.name }}
 git_pr_number = sys.argv[5] # ${{github.event.pull_request.number}}
 project_branh_name = git_project_name + ".PR." + git_pr_number
 
+print("Set variables :")
+print("CxServer " + cxServer)
+print("cxUser " + cxUser)
+print("git_project_name " + git_project_name)
+print("git_pr_number " + git_pr_number)
+print("project_branh_name " + project_branh_name)
+
 Main()
