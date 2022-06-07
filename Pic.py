@@ -10,20 +10,20 @@ print(" \_____|_| |_|\___|\___|_|\_\_| |_| |_|\__,_|_|  /_/\_\ ")
 print("                                                        ")
 
 def CheckmarxLogin():
-	urlToken = cxServer + "/cxrestapi/auth/identity/connect/token"
-	scope = "access_control_api%20sast_api"
-	clientId = "resource_owner_sast_client"
-	payload = 'username=' + cxUser +'&password=' + cxPwd + '&grant_type=password&scope=' + scope + '&client_id=' + clientId +'&client_secret=014DF517-39D1-4453-B7B3-9930C563627C'
-	headersToken = {'Content-Type': 'application/x-www-form-urlencoded'}
-	responseToken = requests.request("POST", urlToken, headers=headersToken, data = payload)
+    urlToken = cxServer + "/cxrestapi/auth/identity/connect/token"
+    scope = "access_control_api%20sast_api"
+    clientId = "resource_owner_sast_client"
+    payload = 'username=' + cxUser +'&password=' + cxPwd + '&grant_type=password&scope=' + scope + '&client_id=' + clientId +'&client_secret=014DF517-39D1-4453-B7B3-9930C563627C'
+    headersToken = {'Content-Type': 'application/x-www-form-urlencoded'}
+    responseToken = requests.request("POST", urlToken, headers=headersToken, data = payload)
 
-	if responseToken.status_code == requests.codes['ok']:
-		json_data = json.loads(responseToken.text)
-		tokenCx = "Bearer " + json_data['access_token']
-		return tokenCx
-	else:
-		print("Erro ao gerar token para o Checkmarx : " + responseToken.text)
-		exit(1)
+    if responseToken.status_code == requests.codes['ok']:
+        json_data = json.loads(responseToken.text)
+        tokenCx = "Bearer " + json_data['access_token']
+        return tokenCx
+    else:
+        print("Erro ao gerar token para o Checkmarx : " + responseToken.text)
+        exit(1)
 
 def ProjetoExiste(fproject):
     urlProjects = cxServer + "/cxrestapi/projects"
@@ -64,14 +64,14 @@ def Main():
         
         if pjExiste[0] == "false":
             print("O projeto principal nao existe no Checkmarx. Segue para scan e criacao do projeto " + project_branh_name)
-	    exit(0)
+            exit(0)
         else:
             CriarBranchPR(pjExiste[1],project_branh_name)
             print("Branch criada e seguindo para scan " + project_branh_name)
-	    exit(0)		
+            exit(0)
     else:
         print("Projeto já existe. Segue para scan" + project_branh_name)
-	exit(0)
+        exit(0)
 
 #variaveis 
 print("Recebendo args:")
