@@ -71,18 +71,19 @@ def Main():
         print("Projeto já existe. Segue para scan" + project_branh_name)
 
 #variaveis 
+print("Recebendo args:")
+print(sys.argv[0])
+print(sys.argv[1])
+print(sys.argv[2])
+print(sys.argv[3])
+print(sys.argv[4])
+print(sys.argv[5])
+
 cxServer = sys.argv[1] #${{secrets.CHECKMARX_URL}}
 cxUser = sys.argv[2] #${{secrets.CXUSER}}
 cxPwd = sys.argv[3] # ${{secrets.CXPWD}}
 git_project_name = sys.argv[4] #${{ github.event.repository.name }}
 git_pr_number = sys.argv[5] # ${{github.event.pull_request.number}}
 project_branh_name = git_project_name + ".PR." + git_pr_number
-
-print("Set variables :")
-print("CxServer " + cxServer)
-print("cxUser " + cxUser)
-print("git_project_name " + git_project_name)
-print("git_pr_number " + git_pr_number)
-print("project_branh_name " + project_branh_name)
 
 Main()
