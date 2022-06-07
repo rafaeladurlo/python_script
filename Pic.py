@@ -63,8 +63,8 @@ def Main():
         pjExiste = ProjetoExiste(git_project_name)
         
         if pjExiste[0] == "false":
-            print("O projeto principal nao existe no Checkmarx. Segue para scan e criacao do projeto " + project_branh_name)
-            exit(0)
+            print("O projeto principal nao existe no Checkmarx. Implante o projeto na esteira principal")
+            exit(1)
         else:
             CriarBranchPR(pjExiste[1],project_branh_name)
             print("Branch criada e seguindo para scan " + project_branh_name)
