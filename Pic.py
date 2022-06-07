@@ -64,11 +64,14 @@ def Main():
         
         if pjExiste[0] == "false":
             print("O projeto principal nao existe no Checkmarx. Segue para scan e criacao do projeto " + project_branh_name)
+	    exit(0)
         else:
             CriarBranchPR(pjExiste[1],project_branh_name)
             print("Branch criada e seguindo para scan " + project_branh_name)
+	    exit(0)		
     else:
         print("Projeto já existe. Segue para scan" + project_branh_name)
+	exit(0)
 
 #variaveis 
 print("Recebendo args:")
