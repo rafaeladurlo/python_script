@@ -75,14 +75,13 @@ print("Recebendo args:")
 print(sys.argv[0])
 print(sys.argv[1])
 print(sys.argv[2])
-print(sys.argv[3])
-print(sys.argv[4])
+#print(sys.argv[3])
+#print(sys.argv[4])
 
-cxServer = sys.argv[0] #${{secrets.CHECKMARX_URL}}
-cxUser = sys.argv[1] #${{secrets.CXUSER}}
-cxPwd = sys.argv[2] # ${{secrets.CXPWD}}
-git_project_name = sys.argv[3] #${{ github.event.repository.name }}
-git_pr_number = sys.argv[4] # ${{github.event.pull_request.number}}
-project_branh_name = git_project_name + ".PR." + git_pr_number
-
-Main()
+#cxServer = sys.argv[0] #${{secrets.CHECKMARX_URL}}
+#cxUser = sys.argv[1] #${{secrets.CXUSER}}
+#cxPwd = sys.argv[2] # ${{secrets.CXPWD}}
+#git_project_name = sys.argv[3] #${{ github.event.repository.name }}
+#git_pr_number = sys.argv[4] # ${{github.event.pull_request.number}}
+#project_branh_name = git_project_name + ".PR." + git_pr_number
+#Main()
