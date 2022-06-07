@@ -1,5 +1,5 @@
 # coding: utf-8
-import requests,json
+import requests,json,sys
 
 print("  _____ _               _                               ")
 print(" / ____| |             | |                              ")
@@ -8,14 +8,6 @@ print("| |    | '_ \ / _ \/ __| |/ / '_ ` _ \ / _` | '__\ \/ / ")
 print("| |____| | | |  __/ (__|   <| | | | | | (_| | |   >  <  ")
 print(" \_____|_| |_|\___|\___|_|\_\_| |_| |_|\__,_|_|  /_/\_\ ")
 print("                                                        ")
-
-#variaveis 
-cxServer = ${{secrets.CHECKMARX_URL}}
-cxUser = ${{secrets.CXUSER}}
-cxPwd = ${{secrets.CXPWD}}
-git_project_name = ${{ github.event.repository.name }}
-git_pr_number = ${{github.event.pull_request.number}}
-project_branh_name = git_project_name + ".PR." + git_pr_number
 
 def CheckmarxLogin():
 	urlToken = cxServer + "/cxrestapi/auth/identity/connect/token"
@@ -77,5 +69,13 @@ def Main():
             print("Branch criada e seguindo para scan " + project_branh_name)
     else:
         print("Projeto já existe. Segue para scan" + project_branh_name)
+
+#variaveis 
+cxServer = sys.argv[1] #${{secrets.CHECKMARX_URL}}
+cxUser = sys.argv[2] #${{secrets.CXUSER}}
+cxPwd = sys.argv[3] # ${{secrets.CXPWD}}
+git_project_name = sys.argv[4] #${{ github.event.repository.name }}
+git_pr_number = sys.argv[5] # ${{github.event.pull_request.number}}
+project_branh_name = git_project_name + ".PR." + git_pr_number
 
 Main()
