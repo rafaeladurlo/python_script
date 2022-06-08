@@ -2,9 +2,9 @@
 
 import groovyx.net.http.HTTPBuilder
 
-def buildId = "$CI_CONCURRENT_ID"
-def branch = "$CI_COMMIT_BRANCH"
-String scanComment = "Branch: $branch | Build ID: $buildId"
+def branch = request.getBranch()
+def commitId = request.getHash()
+String scanComment = "Branch: $branch | Commit ID: $commitId"
 println "INFO : Scanning code from $scanComment"
 
 return scanComment
