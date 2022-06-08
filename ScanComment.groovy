@@ -2,10 +2,8 @@
 
 import groovyx.net.http.HTTPBuilder
 
-println args[0]
-println args[1]
-def buildId = "GitLab"
-def branch = "GitLabBranch"
+def buildId = args[0]
+def branch = args[1]
 String scanComment = "Branch: $branch | Build ID: $buildId"
 println "INFO : Scanning code from $scanComment"
 
