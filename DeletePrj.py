@@ -61,7 +61,7 @@ def Main():
         DeletarProjeto(prIdprj[1])
     else:
         print("O projeto nao existe" + project_branh_name)
-        exit(1)
+        exit(0)
 
 #variaveis 
 print("Recebendo args:")
