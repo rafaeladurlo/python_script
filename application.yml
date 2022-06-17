@@ -1,0 +1,94 @@
+server:
+  port: 8080
+
+logging:
+  file: cx-flow.log
+
+cx-flow:
+  bug-tracker: JIRA
+  bug-tracker-impl:
+    - JIRA
+  enabled-vulnerability-scanners:
+    - sca
+    - sast
+  branches:
+    - master
+    - develop
+  filter-severity:
+    - High
+    - Medium
+    - Low
+  filter-state:
+     - Confirmed
+     - Urgent
+     - To Verify
+
+checkmarx:
+  #SAST
+  version: 9.4
+  username:
+  password:
+  client-id: resource_owner_client
+  client-secret: 014DF517-39D1-4453-B7B3-9930C563627C
+  scope: access_control_api sast_rest_api
+  base-url: https://picpay.checkmarx.net
+  url: ${checkmarx.base-url}/cxrestapi
+  portal-url: ${checkmarx.base-url}/cxwebinterface/Portal/CxWebService.asmx
+  sdk-url: ${checkmarx.base-url}/cxwebinterface/SDK/CxSDKWebService.asmx
+  portal-wsdl: ${checkmarx.base-url}/Portal/CxWebService.asmx?wsdl
+  sdk-wsdl: ${checkmarx.base-url}/SDK/CxSDKWebService.asmx?wsdl
+  portal-package: checkmarx.wsdl.portal
+  #Scan configuration
+  team: {{team}}
+  scan-preset: {{preset}}
+  exclude-files: {{exclude-files}}
+  exclude-folders: {{exclude-folders}
+  incremental: true
+  incremental-num-scans: 5
+  #Other configuration
+  configuration: "Improved Scan Flow"
+  preserve-xml: false
+  scan-queuing: true
+  jira-custom-field: jira-fields
+
+sca:
+  #sca configuration
+  appUrl: https://sca.checkmarx.net
+  apiUrl: https://api-sca.checkmarx.net
+  accessControlUrl: https://platform.checkmarx.net
+  tenant:
+  username:
+  password:
+  #Scan configuration
+  team: {{team}}
+  include-sources: false
+  exclude-files: "**/*.yml"
+  manifests-include-pattern: ""
+  fingerprints-include-pattern: ""
+  #Other configurations
+  preserve-xml: false
+  filter-severity:
+    - High
+  filter-policy-violation: false
+
+jira:
+  url: https://rdurlo.atlassian.net
+  username:
+  token:
+  #Jira configuration
+  project: {{jira-project}}
+  issue-type: Bug
+  priorities:
+     Critical: Highest
+     High: High
+     Medium: Medium
+     Low: Low
+     Informational: Lowest
+  open-transition: To Do
+  close-transition: Done
+  open-status:
+     - To Do
+     - In Progress
+     - In Review
+  closed-status:
+     - Done
