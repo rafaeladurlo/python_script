@@ -72,7 +72,7 @@ sca:
   filter-policy-violation: false
 
 jira:
-  url: https://rdurlo.atlassian.net
+  url: {{url.jira}}
   username:
   token:
   #Jira configuration
