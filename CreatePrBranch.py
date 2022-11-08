@@ -63,8 +63,8 @@ def Main():
         pjExiste = ProjetoExiste(git_project_name)
         
         if pjExiste[0] == "false":
-            print("O projeto principal nao existe no Checkmarx. Implante o projeto na esteira principal")
-            exit(1)
+            print("O projeto principal nao existe no Checkmarx. Segue scan para novo projeto")
+            exit(0)
         else:
             CriarBranchPR(pjExiste[1],project_branh_name)
             print("Branch criada e seguindo para scan " + project_branh_name)
@@ -81,11 +81,11 @@ print(sys.argv[3])
 print(sys.argv[4])
 print(sys.argv[5])
 
-cxServer = sys.argv[1] #${{secrets.CHECKMARX_URL}}
-cxUser = sys.argv[2] #${{secrets.CXUSER}}
-cxPwd = sys.argv[3] # ${{secrets.CXPWD}}
-git_project_name = sys.argv[4] #${{ github.event.repository.name }}
-git_pr_number = sys.argv[5] # ${{github.event.pull_request.number}}
-project_branh_name = git_project_name + "-PR-" + git_pr_number
+cxServer = sys.argv[1]
+cxUser = sys.argv[2]
+cxPwd = sys.argv[3]
+git_project_name = sys.argv[4]
+git_branch = sys.argv[5]
+project_branh_name = git_project_name + "-." + git_branch
 
 Main()
