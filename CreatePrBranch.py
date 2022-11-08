@@ -22,6 +22,7 @@ def CheckmarxLogin():
         tokenCx = "Bearer " + json_data['access_token']
         return tokenCx
     else:
+        print("PayLoad : " + payload)
         print("Erro ao gerar token para o Checkmarx : " + responseToken.text)
         exit(1)
 
