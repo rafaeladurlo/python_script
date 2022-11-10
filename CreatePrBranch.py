@@ -11,7 +11,7 @@ print("                                                        ")
 
 def CheckmarxLogin():
     urlToken = cxServer + "/cxrestapi/auth/identity/connect/token"
-    payload = 'username=' + cxUser + '&password=' + cxPwd + '&grant_type=password&scope=access_control_api%20sast_api&client_id=resource_owner_sast_client&client_secret=014DF517-39D1-4453-B7B3-9930C563627C''
+    payload = 'username=' + cxUser + '&password=' + cxPwd + '&grant_type=password&scope=access_control_api%20sast_api&client_id=resource_owner_sast_client&client_secret=014DF517-39D1-4453-B7B3-9930C563627C'
     headersToken = {'Content-Type': 'application/x-www-form-urlencoded'}
     responseToken = requests.request("POST", urlToken, headers=headersToken, data = payload)
 
