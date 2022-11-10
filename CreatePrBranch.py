@@ -87,6 +87,6 @@ cxUser = sys.argv[2]
 cxPwd = sys.argv[3]
 git_project_name = sys.argv[4]
 git_branch = sys.argv[5]
-project_branh_name = git_project_name + "-." + git_branch
+project_branh_name = git_project_name + "." + git_branch
 
 Main()
