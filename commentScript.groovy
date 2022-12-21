@@ -6,8 +6,7 @@ println("------------- Groovy script execution started --------------------")
 println("Checking sast comment")
 
 String mergeTargetBranch = getMergeTargetBranch();
-String mergeNoteUri = getmergeNoteUri();
 String commitHash = gethash();
-String SAST_Comment = "Merge Branch: " + mergeTargetBranch + " Merge URi " + mergeNoteUri + " commit hash: "  + commitHash;
+String SAST_Comment = "Merge Branch: " + mergeTargetBranch + " commit hash: "  + commitHash;
 
 return SAST_Comment;
