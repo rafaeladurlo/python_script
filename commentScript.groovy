@@ -5,7 +5,9 @@ import groovy.json.JsonSlurper
 println("------------- Groovy script execution started --------------------")
 println("Checking sast comment")
 
-String SAST_Comment = "Build: " + ${CIRCLE_BUILD_NUM} + " PR Id: " + ${CIRCLE_PR_NUMBER};
-println(SAST_Comment)
+String mergeTargetBranch = request.mergeTargetBranch();
+String mergeNoteUri = request.mergeNoteUri();
+String commitHash = request.hash();
+String SAST_Comment = "Merge Branch: " + mergeTargetBranch + " Merge URi " + mergeNoteUri + " commit hash: "  + commitHash;
 
 return SAST_Comment;
