@@ -5,7 +5,7 @@ import groovy.json.JsonSlurper
 println("------------- Groovy script execution started --------------------")
 println("Checking sast comment")
 
-String SAST_Comment = "Build: " + args[1] + " PR Id: " + args[2];
+String SAST_Comment = "Build: " + ${CIRCLE_BUILD_NUM} + " PR Id: " + ${CIRCLE_PR_NUMBER};
 println(SAST_Comment)
 
 return SAST_Comment;
