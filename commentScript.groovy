@@ -2,7 +2,7 @@
 
 import groovyx.net.http.HTTPBuilder
 
-String scanComment = "Commit ID: $CX_BUIL_ID"
+String scanComment = "Commit ID: " + $CX_BUIL_ID.toString()
 
 println "INFO : Scanning code from $scanComment"
 
