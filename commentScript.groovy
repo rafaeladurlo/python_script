@@ -2,10 +2,7 @@
 
 import groovyx.net.http.HTTPBuilder
 
-def myVar = build.getEnvironment(listener).get('${CIRCLE_BRANCH}')
-String comment = myVar.toString(); 
-
-String scanComment = "Repo: $comment"
+String scanComment = "Commit ID: $CX_BUIL_ID"
 
 println "INFO : Scanning code from $scanComment"
 
