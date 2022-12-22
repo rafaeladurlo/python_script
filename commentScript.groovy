@@ -2,7 +2,8 @@
 
 import groovyx.net.http.HTTPBuilder
 
-String scanComment = "Commit ID: " + $CX_BUIL_ID.toString()
+File file1 = new File("param.txt");
+def String scanComment = file1.readLines();
 
 println "INFO : Scanning code from $scanComment"
 
