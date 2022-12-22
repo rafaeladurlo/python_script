@@ -1,9 +1,7 @@
-@Grab(group='org.codehaus.groovy.modules.http-builder', module='http-builder', version='0.7' )
+import java.io.File
 
-import groovyx.net.http.HTTPBuilder
-
-File file1 = new File("param.txt");
-def String scanComment = file1.readLines();
+File file = new File("param.txt");
+String scanComment = file.text
 
 println "INFO : Scanning code from $scanComment"
 
