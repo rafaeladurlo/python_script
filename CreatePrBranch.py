@@ -11,7 +11,7 @@ print("                                                        ")
 
 def CheckmarxLogin():
     urlToken = cxServer + "/cxrestapi/auth/identity/connect/token"
-    payload = 'username=' + cxUser + '&password=' + cxPwd + '&grant_type=password&scope=access_control_api%20sast_api&client_id=resource_owner_sast_client&client_secret=014DF517-39D1-4453-B7B3-9930C563627C'
+    payload = 'username=' + cxUser + '&password=' + cxPwd + '&grant_type=password&scope=access_control_api%20sast_api&client_id=resource_owner_sast_client&client_secret=' + client_secret
     headersToken = {'Content-Type': 'application/x-www-form-urlencoded'}
     responseToken = requests.request("POST", urlToken, headers=headersToken, data = payload)
 
@@ -79,12 +79,14 @@ print(sys.argv[2])
 print(sys.argv[3])
 print(sys.argv[4])
 print(sys.argv[5])
+print(sys.argv[6])
 
 cxServer = sys.argv[1]
 cxUser = sys.argv[2]
 cxPwd = sys.argv[3]
 git_project_name = sys.argv[4]
 git_branch = sys.argv[5]
+client_secret = sys.argv[6]
 project_branh_name = git_project_name + "." + git_branch
 
 Main()
