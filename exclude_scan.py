@@ -48,7 +48,7 @@ def deleteScanId(fscanId):
     headers = {'Authorization': CheckmarxLogin()}
     response = requests.request("DELETE", url, headers=headers)
     
-    if response.status_code == 204:
+    if response.status_code == 202:
         print("Scan id " + fscanId + " foi excluido")
         exit(0)
     else:
